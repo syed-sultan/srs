@@ -45,44 +45,24 @@ export default class StudentEnrollmentService {
       .ignoreAllNonExisting();
   }
 
-  async getStudents(
-    studentId: string,
-    studentSection: string,
+  async getActiveStudents(
+      studentId: string,
+      studentSection: string,
   ): Promise<StudentEnrollmentResultDto[]> {
-    this.logger.log('Fetching Students based on criteria - ',+studentId+' | '+studentSection);
-    let query = {};
+    this.logger.log('Fetching Active Students based on criteria - ',+studentId+' | '+studentSection+ ' | Y(Active)');
+    let result: StudentEnrollmentResultDto[] = [];
+    result = await this.getStudentsBasedOnCriteria(studentId, studentSection, 'Y');
+    this.logger.log('Total No. of Students fetched - '+result.length);
+    return result;
+  }
 
-    if (studentId) {
-      query = { ...query, studentEnrollmentId: studentId };
-    }
-    if (studentSection) {
-      query = { ...query, studentSection: studentSection };
-    }
-
-    query = { ...query, status: 'Y' };
-    const students: StudentEnrollmentResultDto[] = await this.studentEnrollmentRepository.find(
-      {
-        where: query,
-      },
-    );
-
-    if (!students || students.length === 0) {
-      throw new ApiException(
-        ApiExceptionEnums.RECORD_NOT_FOUND.getCode(),
-        ApiExceptionEnums.RECORD_NOT_FOUND.getDescription(),
-        HttpStatus.NOT_FOUND,
-      );
-    }
-
-    const result: StudentEnrollmentResultDto[] = [];
-    for (const eachStudent of students) {
-      const eachStudentDto: StudentEnrollmentResultDto = automapper.map(
-        'StudentEnrollment',
-        'StudentEnrollmentResultDto',
-        eachStudent,
-      );
-      result.push(eachStudentDto);
-    }
+  async getInactiveStudents(
+      studentId: string,
+      studentSection: string,
+  ): Promise<StudentEnrollmentResultDto[]> {
+    this.logger.log('Fetching Inactive Students based on criteria - ',+studentId+' | '+studentSection+ ' | N(Deleted)');
+    let result: StudentEnrollmentResultDto[] = [];
+    result = await this.getStudentsBasedOnCriteria(studentId, studentSection, 'N');
     this.logger.log('Total No. of Students fetched - '+result.length);
     return result;
   }
@@ -183,5 +163,50 @@ export default class StudentEnrollmentService {
       'DeletedStudentResultDto',
       deletedResult,
     );
+  }
+
+  async getStudentsBasedOnCriteria(
+      studentId: string,
+      studentSection: string,
+      status: string,
+  ): Promise<StudentEnrollmentResultDto[]> {
+    let query = {};
+
+    if (studentId) {
+      query = { ...query, studentEnrollmentId: studentId };
+    }
+
+    if (studentSection) {
+      query = { ...query, studentSection: studentSection };
+    }
+
+    if (status) {
+      query = { ...query, status: status };
+    }
+
+    const students: StudentEnrollmentResultDto[] = await this.studentEnrollmentRepository.find(
+        {
+          where: query,
+        },
+    );
+
+    if (!students || students.length === 0) {
+      throw new ApiException(
+          ApiExceptionEnums.RECORD_NOT_FOUND.getCode(),
+          ApiExceptionEnums.RECORD_NOT_FOUND.getDescription(),
+          HttpStatus.NOT_FOUND,
+      );
+    }
+
+    const result: StudentEnrollmentResultDto[] = [];
+    for (const eachStudent of students) {
+      const eachStudentDto: StudentEnrollmentResultDto = automapper.map(
+          'StudentEnrollment',
+          'StudentEnrollmentResultDto',
+          eachStudent,
+      );
+      result.push(eachStudentDto);
+    }
+    return result;
   }
 }

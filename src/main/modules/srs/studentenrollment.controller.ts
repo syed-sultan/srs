@@ -43,11 +43,26 @@ export default class StudentEnrollmentController {
     isArray: true,
     description: 'Get All the Students Information',
   })
-  async getStudents(
+  async getActiveStudents(
     @Query('studentEnrollmentId') enrollmentId: string,
     @Query('studentSection') section: string,
   ): Promise<StudentEnrollmentResultDto[]> {
-    return this.studentEnrollmentService.getStudents(enrollmentId, section);
+    return this.studentEnrollmentService.getActiveStudents(enrollmentId, section);
+  }
+
+  @Get('inactive')
+  @ApiQuery({ name: 'studentEnrollmentId', type: String, required: false })
+  @ApiQuery({ name: 'studentSection', type: String, required: false })
+  @ApiOkResponse({
+    type: StudentEnrollmentResultDto,
+    isArray: true,
+    description: 'Get all deleted Students Information ',
+  })
+  async getInactiveStudents(
+      @Query('studentEnrollmentId') enrollmentId: string,
+      @Query('studentSection') section: string,
+  ): Promise<StudentEnrollmentResultDto[]> {
+    return this.studentEnrollmentService.getInactiveStudents(enrollmentId, section);
   }
 
   @Post('enrollment')

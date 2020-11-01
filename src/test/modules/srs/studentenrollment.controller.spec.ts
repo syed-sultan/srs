@@ -14,7 +14,6 @@ describe('StudentEnrollment', () => {
   let studentEnrollmentResultDto: StudentEnrollmentResultDto;
   let allStudents: StudentEnrollmentResultDto[];
 
-
   beforeEach(() => {
     studentEnrollmentService = new StudentEnrollmentService(undefined);
     //studentEnrollmentService = createMock<StudentEnrollmentService>();
@@ -26,15 +25,27 @@ describe('StudentEnrollment', () => {
     allStudents = [studentEnrollmentResultDto, studentEnrollmentResultDto1];
   });
 
-  it('should return student enrollments', async () => {
+  it('should return active student enrollments', async () => {
     jest
-      .spyOn(studentEnrollmentService, 'getStudents')
+      .spyOn(studentEnrollmentService, 'getActiveStudents')
       .mockImplementation(() => new Promise((r) => r(allStudents)));
-    const result: StudentEnrollmentResultDto[] = await studentEnrollmentController.getStudents(
+    const result: StudentEnrollmentResultDto[] = await studentEnrollmentController.getActiveStudents(
       undefined,
       undefined,
     );
-    expect(studentEnrollmentService.getStudents).toHaveBeenCalled();
+    expect(studentEnrollmentService.getActiveStudents).toHaveBeenCalled();
+    expect(result).toStrictEqual(allStudents);
+  });
+
+  it('should return inactive student enrollments', async () => {
+    jest
+        .spyOn(studentEnrollmentService, 'getInactiveStudents')
+        .mockImplementation(() => new Promise((r) => r(allStudents)));
+    const result: StudentEnrollmentResultDto[] = await studentEnrollmentController.getInactiveStudents(
+        undefined,
+        undefined,
+    );
+    expect(studentEnrollmentService.getInactiveStudents).toHaveBeenCalled();
     expect(result).toStrictEqual(allStudents);
   });
 

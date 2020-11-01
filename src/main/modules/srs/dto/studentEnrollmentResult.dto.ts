@@ -28,6 +28,8 @@ export class StudentEnrollmentResultDto {
   @ApiResponseProperty()
   public status: string;
 
+  public remarks: string;
+
   public updateDateTime: Date;
 
   @IsDate()

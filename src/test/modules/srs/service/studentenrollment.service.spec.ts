@@ -109,7 +109,7 @@ describe('StudentEnrollmentService', () => {
       .spyOn(studentEnrollmentRepository, 'find')
       .mockImplementation(() => new Promise((r) => r(studentEnrollments)));
 
-    const result: StudentEnrollmentResultDto[] = await studentEnrollmentService.getStudents(
+    const result: StudentEnrollmentResultDto[] = await studentEnrollmentService.getActiveStudents(
       undefined,
       undefined,
     );
@@ -130,7 +130,7 @@ describe('StudentEnrollmentService', () => {
         ),
       );
     await expect(
-      studentEnrollmentService.getStudents(
+      studentEnrollmentService.getActiveStudents(
         enrolment1.studentEnrollmentId,
         enrolment1.studentSection,
       ),
@@ -148,7 +148,7 @@ describe('StudentEnrollmentService', () => {
       .spyOn(studentEnrollmentRepository, 'find')
       .mockImplementation(() => new Promise((r) => r([])));
     await expect(
-      studentEnrollmentService.getStudents(
+      studentEnrollmentService.getActiveStudents(
         enrolment1.studentEnrollmentId,
         enrolment1.studentSection,
       ),
@@ -158,6 +158,63 @@ describe('StudentEnrollmentService', () => {
         ApiExceptionEnums.RECORD_NOT_FOUND.getDescription(),
         HttpStatus.NOT_FOUND,
       ),
+    );
+  });
+
+  it('should return all the inactive students', async () => {
+    jest
+        .spyOn(studentEnrollmentRepository, 'find')
+        .mockImplementation(() => new Promise((r) => r(studentEnrollments)));
+
+    const result: StudentEnrollmentResultDto[] = await studentEnrollmentService.getActiveStudents(
+        undefined,
+        undefined,
+    );
+    expect(studentEnrollmentRepository.find).toHaveBeenCalled();
+    expect(result.length).toEqual(2);
+  });
+
+  it('should return no records if there are no inactive students', async () => {
+    jest
+        .spyOn(studentEnrollmentRepository, 'find')
+        .mockImplementation(() =>
+            Promise.reject(
+                new ApiException(
+                    ApiExceptionEnums.RECORD_NOT_FOUND.getCode(),
+                    ApiExceptionEnums.RECORD_NOT_FOUND.getDescription(),
+                    HttpStatus.NOT_FOUND,
+                ),
+            ),
+        );
+    await expect(
+        studentEnrollmentService.getInactiveStudents(
+            enrolment1.studentEnrollmentId,
+            enrolment1.studentSection,
+        ),
+    ).rejects.toThrow(
+        new ApiException(
+            ApiExceptionEnums.RECORD_NOT_FOUND.getCode(),
+            ApiExceptionEnums.RECORD_NOT_FOUND.getDescription(),
+            HttpStatus.NOT_FOUND,
+        ),
+    );
+  });
+
+  it('should return no records if there are no inactive students', async () => {
+    jest
+        .spyOn(studentEnrollmentRepository, 'find')
+        .mockImplementation(() => new Promise((r) => r([])));
+    await expect(
+        studentEnrollmentService.getInactiveStudents(
+            enrolment1.studentEnrollmentId,
+            enrolment1.studentSection,
+        ),
+    ).rejects.toThrow(
+        new ApiException(
+            ApiExceptionEnums.RECORD_NOT_FOUND.getCode(),
+            ApiExceptionEnums.RECORD_NOT_FOUND.getDescription(),
+            HttpStatus.NOT_FOUND,
+        ),
     );
   });
 
