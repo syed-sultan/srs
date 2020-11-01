@@ -1,0 +1,24 @@
+version: "3.7"
+
+services:
+
+  srs-ms-sql-server-db:
+    container_name: srs-db
+    image: srs-ms-sql-server-db-image
+    build:
+      context: .
+      dockerfile: docker/srs-ms-sql-server-db.dockerfile
+    ports:
+      - "1433:1433"
+    networks:
+      srs-network:
+        aliases:
+          - database
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=P@ssw0rd
+      - MSSQL_PID=Developer
+
+networks:
+  srs-network:
+    name: srs-network

@@ -1,0 +1,12 @@
+default:
+  server:
+    port: 8099
+  database:
+    type: mssql
+    host: localhost
+    port: 1433
+    name: srs_db
+    username: sa
+    password: P@ssw0rd
+    synchronize: false
+

@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1604215158606" clover="3.2.0">
+  <project timestamp="1604215158606" name="All files">
+    <metrics statements="207" coveredstatements="203" conditionals="16" coveredconditionals="12" methods="48" coveredmethods="44" elements="271" coveredelements="259" complexity="0" loc="207" ncloc="207" packages="9" files="18" classes="18"/>
+    <package name="main">
+      <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="app.module.ts" path="/Users/syed/Workspace/srs/src/main/app.module.ts">
+        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="16" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="main.modules.app-config">
+      <metrics statements="12" coveredstatements="9" conditionals="4" coveredconditionals="0" methods="6" coveredmethods="3"/>
+      <file name="app-config.module.ts" path="/Users/syed/Workspace/srs/src/main/modules/app-config/app-config.module.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="8" count="2" type="stmt"/>
+      </file>
+      <file name="app-config.ts" path="/Users/syed/Workspace/srs/src/main/modules/app-config/app-config.ts">
+        <metrics statements="9" coveredstatements="6" conditionals="4" coveredconditionals="0" methods="5" coveredmethods="2"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="32" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="main.modules.database">
+      <metrics statements="8" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2"/>
+      <file name="database.module.ts" path="/Users/syed/Workspace/srs/src/main/modules/database/database.module.ts">
+        <metrics statements="8" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="main.modules.srs">
+      <metrics statements="28" coveredstatements="28" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="7"/>
+      <file name="studentenrollment.controller.ts" path="/Users/syed/Workspace/srs/src/main/modules/srs/studentenrollment.controller.ts">
+        <metrics statements="21" coveredstatements="21" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="6"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="14" count="2" type="stmt"/>
+        <line num="15" count="2" type="stmt"/>
+        <line num="22" count="2" type="stmt"/>
+        <line num="23" count="2" type="stmt"/>
+        <line num="24" count="2" type="stmt"/>
+        <line num="25" count="2" type="stmt"/>
+        <line num="26" count="2" type="stmt"/>
+        <line num="27" count="2" type="stmt"/>
+        <line num="28" count="2" type="stmt"/>
+        <line num="33" count="4" type="stmt"/>
+        <line num="34" count="4" type="stmt"/>
+        <line num="44" count="2" type="stmt"/>
+        <line num="48" count="1" type="stmt"/>
+        <line num="58" count="2" type="stmt"/>
+        <line num="61" count="1" type="stmt"/>
+        <line num="70" count="2" type="stmt"/>
+        <line num="73" count="1" type="stmt"/>
+        <line num="79" count="2" type="stmt"/>
+        <line num="83" count="1" type="stmt"/>
+        <line num="85" count="2" type="stmt"/>
+      </file>
+      <file name="studentenrollment.module.ts" path="/Users/syed/Workspace/srs/src/main/modules/srs/studentenrollment.module.ts">
+        <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="21" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="main.modules.srs.dto">
+      <metrics statements="44" coveredstatements="44" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="5"/>
+      <file name="createStudent.dto.ts" path="/Users/syed/Workspace/srs/src/main/modules/srs/dto/createStudent.dto.ts">
+        <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="6" count="3" type="stmt"/>
+        <line num="8" count="3" type="stmt"/>
+        <line num="16" count="3" type="stmt"/>
+        <line num="22" count="3" type="stmt"/>
+        <line num="28" count="3" type="stmt"/>
+        <line num="34" count="3" type="stmt"/>
+        <line num="39" count="3" type="stmt"/>
+        <line num="41" count="3" type="stmt"/>
+      </file>
+      <file name="deleteStudent.dto.ts" path="/Users/syed/Workspace/srs/src/main/modules/srs/dto/deleteStudent.dto.ts">
+        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="5" count="3" type="stmt"/>
+        <line num="7" count="3" type="stmt"/>
+        <line num="11" count="3" type="stmt"/>
+        <line num="12" count="3" type="stmt"/>
+        <line num="14" count="3" type="stmt"/>
+      </file>
+      <file name="deletedStudentResult.dto.ts" path="/Users/syed/Workspace/srs/src/main/modules/srs/dto/deletedStudentResult.dto.ts">
+        <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="13" count="2" type="stmt"/>
+        <line num="14" count="2" type="stmt"/>
+        <line num="16" count="2" type="stmt"/>
+      </file>
+      <file name="studentEnrollmentResult.dto.ts" path="/Users/syed/Workspace/srs/src/main/modules/srs/dto/studentEnrollmentResult.dto.ts">
+        <metrics statements="12" coveredstatements="12" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="16" count="2" type="stmt"/>
+        <line num="20" count="2" type="stmt"/>
+        <line num="24" count="2" type="stmt"/>
+        <line num="28" count="2" type="stmt"/>
+        <line num="32" count="2" type="stmt"/>
+        <line num="38" count="2" type="stmt"/>
+        <line num="41" count="2" type="stmt"/>
+        <line num="43" count="2" type="stmt"/>
+      </file>
+      <file name="updateStudent.dto.ts" path="/Users/syed/Workspace/srs/src/main/modules/srs/dto/updateStudent.dto.ts">
+        <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="5" count="3" type="stmt"/>
+        <line num="7" count="3" type="stmt"/>
+        <line num="11" count="3" type="stmt"/>
+        <line num="16" count="3" type="stmt"/>
+        <line num="21" count="3" type="stmt"/>
+        <line num="26" count="3" type="stmt"/>
+        <line num="31" count="3" type="stmt"/>
+        <line num="32" count="3" type="stmt"/>
+        <line num="34" count="3" type="stmt"/>
+      </file>
+    </package>
+    <package name="main.modules.srs.entity">
+      <metrics statements="14" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="studentenrollment.entity.ts" path="/Users/syed/Workspace/srs/src/main/modules/srs/entity/studentenrollment.entity.ts">
+        <metrics statements="14" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="10" count="4" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="20" count="2" type="stmt"/>
+        <line num="28" count="2" type="stmt"/>
+        <line num="36" count="2" type="stmt"/>
+        <line num="44" count="2" type="stmt"/>
+        <line num="52" count="2" type="stmt"/>
+        <line num="60" count="2" type="stmt"/>
+        <line num="68" count="2" type="stmt"/>
+        <line num="75" count="2" type="stmt"/>
+        <line num="82" count="2" type="stmt"/>
+        <line num="83" count="2" type="stmt"/>
+        <line num="85" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="main.modules.srs.repository">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="studentenrollment.repository.ts" path="/Users/syed/Workspace/srs/src/main/modules/srs/repository/studentenrollment.repository.ts">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
+      </file>
+    </package>
+    <package name="main.modules.srs.service">
+      <metrics statements="67" coveredstatements="67" conditionals="12" coveredconditionals="12" methods="16" coveredmethods="16"/>
+      <file name="studentenrollment.service.ts" path="/Users/syed/Workspace/srs/src/main/modules/srs/service/studentenrollment.service.ts">
+        <metrics statements="67" coveredstatements="67" conditionals="12" coveredconditionals="12" methods="16" coveredmethods="16"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="5" count="3" type="stmt"/>
+        <line num="6" count="3" type="stmt"/>
+        <line num="7" count="3" type="stmt"/>
+        <line num="16" count="3" type="stmt"/>
+        <line num="17" count="11" type="stmt"/>
+        <line num="21" count="11" type="stmt"/>
+        <line num="23" count="11" type="stmt"/>
+        <line num="25" count="8" type="stmt"/>
+        <line num="26" count="8" type="stmt"/>
+        <line num="27" count="8" type="stmt"/>
+        <line num="28" count="8" type="stmt"/>
+        <line num="29" count="8" type="stmt"/>
+        <line num="30" count="8" type="stmt"/>
+        <line num="31" count="8" type="stmt"/>
+        <line num="32" count="8" type="stmt"/>
+        <line num="35" count="11" type="stmt"/>
+        <line num="37" count="2" type="stmt"/>
+        <line num="38" count="2" type="stmt"/>
+        <line num="46" count="3" type="stmt"/>
+        <line num="48" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="49" count="2" type="stmt"/>
+        <line num="51" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="52" count="2" type="stmt"/>
+        <line num="55" count="3" type="stmt"/>
+        <line num="56" count="3" type="stmt"/>
+        <line num="60" count="2" type="cond" truecount="4" falsecount="0"/>
+        <line num="61" count="1" type="stmt"/>
+        <line num="68" count="1" type="stmt"/>
+        <line num="69" count="1" type="stmt"/>
+        <line num="70" count="2" type="stmt"/>
+        <line num="75" count="2" type="stmt"/>
+        <line num="77" count="1" type="stmt"/>
+        <line num="81" count="2" type="stmt"/>
+        <line num="82" count="2" type="stmt"/>
+        <line num="83" count="2" type="stmt"/>
+        <line num="84" count="2" type="stmt"/>
+        <line num="85" count="2" type="stmt"/>
+        <line num="86" count="2" type="stmt"/>
+        <line num="88" count="2" type="stmt"/>
+        <line num="89" count="2" type="stmt"/>
+        <line num="91" count="1" type="stmt"/>
+        <line num="97" count="1" type="stmt"/>
+        <line num="105" count="3" type="stmt"/>
+        <line num="108" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="109" count="1" type="stmt"/>
+        <line num="116" count="1" type="stmt"/>
+        <line num="117" count="1" type="stmt"/>
+        <line num="118" count="1" type="stmt"/>
+        <line num="119" count="1" type="stmt"/>
+        <line num="120" count="1" type="stmt"/>
+        <line num="121" count="1" type="stmt"/>
+        <line num="123" count="1" type="stmt"/>
+        <line num="124" count="1" type="stmt"/>
+        <line num="132" count="3" type="stmt"/>
+        <line num="135" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="136" count="1" type="stmt"/>
+        <line num="143" count="1" type="stmt"/>
+        <line num="144" count="1" type="stmt"/>
+        <line num="145" count="1" type="stmt"/>
+        <line num="146" count="1" type="stmt"/>
+        <line num="148" count="1" type="stmt"/>
+        <line num="149" count="1" type="stmt"/>
+        <line num="155" count="3" type="stmt"/>
+      </file>
+    </package>
+    <package name="main.utils">
+      <metrics statements="26" coveredstatements="26" conditionals="0" coveredconditionals="0" methods="9" coveredmethods="9"/>
+      <file name="apiException.ts" path="/Users/syed/Workspace/srs/src/main/utils/apiException.ts">
+        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="3" count="4" type="stmt"/>
+        <line num="8" count="16" type="stmt"/>
+        <line num="9" count="16" type="stmt"/>
+        <line num="10" count="16" type="stmt"/>
+        <line num="11" count="16" type="stmt"/>
+      </file>
+      <file name="apiExceptionEnums.ts" path="/Users/syed/Workspace/srs/src/main/utils/apiExceptionEnums.ts">
+        <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="5"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="7" count="3" type="stmt"/>
+        <line num="8" count="12" type="stmt"/>
+        <line num="9" count="12" type="stmt"/>
+        <line num="11" count="3" type="stmt"/>
+      </file>
+      <file name="apiExceptionFilter.ts" path="/Users/syed/Workspace/srs/src/main/utils/apiExceptionFilter.ts">
+        <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="6" count="6" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="17" count="3" type="stmt"/>
+      </file>
+      <file name="studentEnrollmentIdParams.ts" path="/Users/syed/Workspace/srs/src/main/utils/studentEnrollmentIdParams.ts">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>

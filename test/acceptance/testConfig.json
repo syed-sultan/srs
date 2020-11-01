@@ -1,0 +1,10 @@
+{
+  "dbHost": "localhost",
+  "dbPort": 1433,
+  "dbName": "srs_db",
+  "dbUserName": "sa",
+  "dbPassword": "P@ssw0rd",
+  "dbSynchronize": false,
+  "connName": "srs_e2e_connection",
+  "apiBaseUrl": "http://localhost:8099"
+}
