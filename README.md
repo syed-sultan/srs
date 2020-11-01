@@ -1,2 +1,2 @@
-# srs
+# Student Enrollment
 Students Registration System
