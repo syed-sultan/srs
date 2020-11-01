@@ -12,88 +12,79 @@ describe('StudentEnrollment', () => {
   let studentEnrollmentService: StudentEnrollmentService;
   let studentEnrollmentController: StudentEnrollmentController;
   let studentEnrollmentResultDto: StudentEnrollmentResultDto;
+  let allStudents: StudentEnrollmentResultDto[];
+
 
   beforeEach(() => {
-    studentEnrollmentService = createMock<StudentEnrollmentService>();
+    studentEnrollmentService = new StudentEnrollmentService(undefined);
+    //studentEnrollmentService = createMock<StudentEnrollmentService>();
     studentEnrollmentController = new StudentEnrollmentController(
-      studentEnrollmentService,
+        studentEnrollmentService,
     );
-    studentEnrollmentResultDto = createMock<StudentEnrollmentResultDto>();
+    const studentEnrollmentResultDto = new StudentEnrollmentResultDto();
+    const studentEnrollmentResultDto1 = new StudentEnrollmentResultDto();
+    allStudents = [studentEnrollmentResultDto, studentEnrollmentResultDto1];
   });
 
-  describe('getAllStudents()', () => {
-    let allStudents: StudentEnrollmentResultDto[];
+  it('should return student enrollments', async () => {
+    jest
+      .spyOn(studentEnrollmentService, 'getStudents')
+      .mockImplementation(() => new Promise((r) => r(allStudents)));
+    const result: StudentEnrollmentResultDto[] = await studentEnrollmentController.getStudents(
+      undefined,
+      undefined,
+    );
+    expect(studentEnrollmentService.getStudents).toHaveBeenCalled();
+    expect(result).toStrictEqual(allStudents);
+  });
 
-    beforeEach(() => {
-      const studentEnrollmentResultDto = createMock<
-        StudentEnrollmentResultDto
-      >();
-      const studentEnrollmentResultDto1 = createMock<
-        StudentEnrollmentResultDto
-      >();
-      allStudents = [studentEnrollmentResultDto, studentEnrollmentResultDto1];
-    });
-
-    it('should return student enrollments', async () => {
-      jest
-        .spyOn(studentEnrollmentService, 'getStudents')
-        .mockImplementation(() => new Promise((r) => r(allStudents)));
-      const result: StudentEnrollmentResultDto[] = await studentEnrollmentController.getStudents(
-        undefined,
-        undefined,
-      );
-      expect(studentEnrollmentService.getStudents).toHaveBeenCalled();
-      expect(result).toStrictEqual(allStudents);
-    });
-
-    it('enroll student successfully when valid request body is provided', async () => {
-      jest
-        .spyOn(studentEnrollmentService, 'studentEnrollment')
-        .mockImplementation(
-          () => new Promise((r) => r(studentEnrollmentResultDto)),
-        );
-
-      const result: StudentEnrollmentResultDto = await studentEnrollmentController.studentEnrollment(
-        new CreateStudentDto(),
+  it('enroll student successfully when valid request body is provided', async () => {
+    jest
+      .spyOn(studentEnrollmentService, 'studentEnrollment')
+      .mockImplementation(
+        () => new Promise((r) => r(studentEnrollmentResultDto)),
       );
 
-      expect(studentEnrollmentService.studentEnrollment).toHaveBeenCalled();
-      expect(result).toBe(studentEnrollmentResultDto);
-    });
+    const result: StudentEnrollmentResultDto = await studentEnrollmentController.studentEnrollment(
+      new CreateStudentDto(),
+    );
 
-    it('should update student information successfully when valid request is provided', async () => {
-      jest
-        .spyOn(studentEnrollmentService, 'updateStudentRecord')
-        .mockImplementation(
-          () => new Promise((r) => r(studentEnrollmentResultDto)),
-        );
+    expect(studentEnrollmentService.studentEnrollment).toHaveBeenCalled();
+    expect(result).toBe(studentEnrollmentResultDto);
+  });
 
-      const result: StudentEnrollmentResultDto = await studentEnrollmentController.updateStudent(
-        new UpdateStudentDto(),
+  it('should update student information successfully when valid request is provided', async () => {
+    jest
+      .spyOn(studentEnrollmentService, 'updateStudentRecord')
+      .mockImplementation(
+        () => new Promise((r) => r(studentEnrollmentResultDto)),
       );
 
-      expect(studentEnrollmentService.updateStudentRecord).toHaveBeenCalled();
-      expect(result).toBe(studentEnrollmentResultDto);
-    });
+    const result: StudentEnrollmentResultDto = await studentEnrollmentController.updateStudent(
+      new UpdateStudentDto(),
+    );
 
-    it('delete student record successfully when valid request is provided', async () => {
-      const deleteStudentDto: DeleteStudentDto = createMock<DeleteStudentDto>();
-      const deletedStudentResultDto: DeletedStudentResultDto = createMock<
-        DeletedStudentResultDto
-      >();
-      jest
-        .spyOn(studentEnrollmentService, 'deleteStudentRecord')
-        .mockImplementation(
-          () => new Promise((r) => r(deletedStudentResultDto)),
-        );
+    expect(studentEnrollmentService.updateStudentRecord).toHaveBeenCalled();
+    expect(result).toBe(studentEnrollmentResultDto);
+  });
 
-      const result: DeletedStudentResultDto = await studentEnrollmentController.deleteStudentRecord(
-        new StudentEnrollmentIdParams(),
-        deleteStudentDto,
+  it('delete student record successfully when valid request is provided', async () => {
+    const deleteStudentDto: DeleteStudentDto = createMock<DeleteStudentDto>();
+    const deletedStudentResultDto: DeletedStudentResultDto = createMock<
+      DeletedStudentResultDto
+    >();
+    jest
+      .spyOn(studentEnrollmentService, 'deleteStudentRecord')
+      .mockImplementation(
+        () => new Promise((r) => r(deletedStudentResultDto)),
       );
 
-      expect(studentEnrollmentService.deleteStudentRecord).toHaveBeenCalled();
-      expect(result).toStrictEqual(deletedStudentResultDto);
-    });
+    const result: DeletedStudentResultDto = await studentEnrollmentController.deleteStudentRecord(
+      new StudentEnrollmentIdParams(),
+      deleteStudentDto,
+    );
+
+    expect(studentEnrollmentService.deleteStudentRecord).toHaveBeenCalled();
+    expect(result).toStrictEqual(deletedStudentResultDto);
   });
 });
