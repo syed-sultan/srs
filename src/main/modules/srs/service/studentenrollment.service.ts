@@ -49,6 +49,7 @@ export default class StudentEnrollmentService {
     studentId: string,
     studentSection: string,
   ): Promise<StudentEnrollmentResultDto[]> {
+    this.logger.log('Fetching Students based on criteria - ',+studentId+' | '+studentSection);
     let query = {};
 
     if (studentId) {
@@ -82,12 +83,14 @@ export default class StudentEnrollmentService {
       );
       result.push(eachStudentDto);
     }
+    this.logger.log('Total No. of Students fetched - '+result.length);
     return result;
   }
 
   async studentEnrollment(
     student: CreateStudentDto,
   ): Promise<StudentEnrollmentResultDto> {
+    this.logger.log('Enrollment for student - ',JSON.stringify(student));
     const studentDate: Date = new Date();
     const studentEnrollmentId = moment(studentDate).format('DDMMYYYYHHmmss');
     student.studentEnrollmentId = 'S' + studentEnrollmentId;
@@ -116,6 +119,7 @@ export default class StudentEnrollmentService {
   async updateStudentRecord(
     updateRecord: UpdateStudentDto,
   ): Promise<StudentEnrollmentResultDto> {
+    this.logger.log('Performing record update with the student information - '+JSON.stringify(updateRecord));
     const student: StudentEnrollment = await this.studentEnrollmentRepository.findOne(
       { where: { studentEnrollmentId: updateRecord.studentEnrollmentId } },
     );
@@ -129,7 +133,7 @@ export default class StudentEnrollmentService {
         HttpStatus.NOT_FOUND,
       );
     }
-
+    this.logger.log('Updating the record for the student enrollment - '+student.studentEnrollmentId);
     student.studentEnrollmentId = updateRecord.studentEnrollmentId;
     student.studentFirstName = updateRecord.studentFirstName;
     student.studentLastName = updateRecord.studentLastName;
@@ -151,6 +155,8 @@ export default class StudentEnrollmentService {
     id: string,
     deleteStudentDto: DeleteStudentDto,
   ): Promise<DeletedStudentResultDto> {
+    this.logger.log('Performing record delete with the student information - '+id+' | '+JSON.stringify(deleteStudentDto));
+
     const student: StudentEnrollment = await this.studentEnrollmentRepository.findOne(
       { where: { studentEnrollmentId: id } },
     );
@@ -162,6 +168,7 @@ export default class StudentEnrollmentService {
         HttpStatus.NOT_FOUND,
       );
     }
+    this.logger.log('Deleting the record for the student enrollment - '+student.studentEnrollmentId);
 
     student.studentEnrollmentId = id;
     student.status = 'N';
