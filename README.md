@@ -41,6 +41,7 @@ $ npm run start:prod
 
 Open the the API docs at: `http://<base-url>/api-docs`
 
+In Local - http://localhost:8099/api-docs
 
 ## Test
 
